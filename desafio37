@@ -9,10 +9,10 @@ op = int(input(f'Escolha a opção para qual base você deseja converte {n}:'
                f'\nDigite sua opção aqui:').strip())  # recebe a opção de conversão
 
 if op == 1: # se escolher binário
-    print(f'O número {n} convertido para binário é igual a {bin(n)[2:]}!') # bin() converte valor int para binario
+    print(f'O número {n} convertido para binário é igual a \033[1;31m{bin(n)[2:]}\033[m!') # bin() converte valor int para binario
 elif op == 2: # se escolher octal
-    print(f'o número {n} convertido para octal é igual a {oct(n)[2:]}!') # oct() converte valor int para octal
+    print(f'o número {n} convertido para octal é igual a \033[1;32{oct(n)[2:]}\033[m!') # oct() converte valor int para octal
 elif op == 3: # se escolher hexadecimal
-    print(f'O número {n} covnertido para hexadecimal é igual a {hex(n)[2:]}!') # hex() converte valor int para hexadecimal
+    print(f'O número {n} covnertido para hexadecimal é igual a \033[1;33m{hex(n)[2:]}\033[m!') # hex() converte valor int para hexadecimal
 else: # se escolher qualquer outro valor diferente
     print('Opção inválida! Tente novamente')  
