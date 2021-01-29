@@ -1,0 +1,21 @@
+# 38 - Escreva um programa que escreva dois numeros inteiros e compare-os, mostrando na tela uma mensagem:
+# o primeiro valor é maior
+# o segundo valor é maior
+# não existe valor maior ou os dois são iguais
+
+c = '\033[m'
+a = '\033[1:35m' #variaveis para cores
+b = '\033[1;36m'
+
+print(10*f'{a}={c}{b}={c}')
+n1 = int(input(f'Primeiro {a}número{c}:').strip()) #recebe primeiro valor
+n2 = int(input(f'Segundo {b}número{c}:').strip()) #recebe segundo valor
+
+if n1 > n2: # se primeiro numero é mairo que segundo
+    print(f'{a}{n1}{c} é maior que {b}{n2}{c}')
+elif n2 > n1: # se segundo numero é amior que primeiro
+    print(f'{b}{n2}{c} é maior que {a}{n1}{c}')
+elif n1 == n2: # se forem iguais:
+    print(f'{b}{n1}{c} é igual a {b}{n2}{c}')
+
+print(10*f'{a}={c}{b}={c}')
