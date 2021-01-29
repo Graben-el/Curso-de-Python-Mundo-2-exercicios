@@ -1,0 +1,28 @@
+# Escreva um programa para aprovar o emprestimo bancário para compra de uma casa. O programa vai perguntar o valor da
+# casa, o salario do comprador e em quantos anos ele vai pagar. Calcule o valor da prestação mensal, sabendo que ela
+# não pode exceder 30% do salario ou então o empréstimo será negado.
+
+from time import sleep
+
+c = float(input('Qual é o \033[1;34mvalor\033[m da casa que pretende comprar? R$').strip())
+s = float(input('Quanto é o seu salário mensal? R$').strip())
+t = int(input('Em quanto tempo (anos inteiros) pretende parcelar a compra da casa?').strip()[0:2])
+tm = t * 12
+p = c / tm
+
+print('Aguarde enquanto processamos a sua proposta')
+print('.')
+sleep(1)
+print('.')
+sleep(1)
+print('.')
+
+if p > 0.3 * s:
+    print('\033[1;31m[xxx.CRÉDITO NEGADO.xxx]!\033[m')
+    print(f'Infelizmente não será possível efetuar o empréstimo para a parcela de \033[1;31mR${p:.2f}/mês\033[m, pois '
+          f'representa \033[1mmais de 30%\033[m de seu salário! '
+          f'\nTente parcelar por um tempo maior.')
+elif p <= 0.3 * s:
+    print('\033[1;32m[===.CRÉDITO APROVADO.===]!\033[m')
+    print(f'\033[1;31mParabéns!\033[m Seu crédito foi aprovado e sua casa no valor de R${c:.2f}'
+          f' será parcelada com parcelas de \033[1;32mR${p:.2f}\033[m durante {t} anos!\nFaça bom proveito...')
