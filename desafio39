@@ -1,0 +1,31 @@
+# Faça um pgroama que leia o ano de nascimento de um jovem e informe de acordo com sua idade:
+# se ele ainda vai se alistar ao serviço militar
+# se é a hora de se alistar
+# se já passou do tempo de alistamento
+# Programa tbm deve mostrar o tempo que falta ou que passou do prazo
+
+from datetime import date  # importando módulo para ler data do sistema
+
+# cores:
+v = '\033[1;31m'  # vermelho negrito
+a = '\033[1;34m'  # azul negrito
+lp = '\033[m'  # clear
+b = '\033[1m'  # negrito
+
+p = date.today().year  # ler ano do sistema
+i = int(input('Em qual ano você nasceu?').strip())  # input do ano de nascimento
+
+if p - i == 18:  # Se tiver 18 anos
+    print(f'{v}Prepare-se!{lp} Este ano você {b}deve se alistar{lp}.')
+elif p - i < 18:  # Se for menor de 18 anos
+    t = 18 - (p - i)  # total de anos restantes
+    print(f'Não se preocupe, sua hora {v}irá{lp} chegar! Faltam {a}{t} anos{lp} para seu alistamento.')
+elif p - i > 18:  # se for maior de 18 anos
+    tp = (p - i) - 18  # tempo excedente ao anod e alistamento
+    c = str(input(f'Você já está quite com o serviço militar? '
+                  f'(\033[4ms/n{lp})').strip())  # verifica se está quite com o serviço militar
+    if c == 's':  # informa tempo decorrido desde o ano de alistamento e se está ou n quite
+        print(f'{a}Muito bem!{lp} Você está {b}quite{lp} com o serviço militar há {a}{tp} anos{lp}!')
+    else:
+        print(f'{v}ATENÇÃO! Você está irregular com o serviço militar há {tp} ANOS!{lp}'
+              f' Regularize sua situação o mais rápido possível!')
