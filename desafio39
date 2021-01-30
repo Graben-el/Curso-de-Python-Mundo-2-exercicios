@@ -25,7 +25,8 @@ elif p - i > 18:  # se for maior de 18 anos
     c = str(input(f'Você já está quite com o serviço militar? '
                   f'(\033[4ms/n{lp})').strip())  # verifica se está quite com o serviço militar
     if c == 's':  # informa tempo decorrido desde o ano de alistamento e se está ou n quite
-        print(f'{a}Muito bem!{lp} Você está {b}quite{lp} com o serviço militar há {a}{tp} anos{lp}!')
+        print(f'{a}Muito bem!{lp} Você está {b}quite{lp} com o serviço militar há {a}{tp} anos{lp}, desde {p - tp}!')
     else:
-        print(f'{v}ATENÇÃO! Você está irregular com o serviço militar há {tp} ANOS!{lp}'
+        print(f'{v}ATENÇÃO! Você está irregular com o serviço militar há {tp} ANOS!{lp} '
+              f'Você deveria ter se alistado em {p - tp}!'
               f' Regularize sua situação o mais rápido possível!')
