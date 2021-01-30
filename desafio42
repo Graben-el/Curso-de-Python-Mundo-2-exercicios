@@ -1,0 +1,19 @@
+# Refaça o desafio 35 dos triângulos acrescentando o recurso de mostrar que tipo de triangulo será formado:
+# Equilatero, todos os lados iguais
+# Isóscele: dois lados iguais
+# Escaleno: todos os lados diferentes
+
+r1 = float(input('Comprimento da reta 1:').strip())
+r2 = float(input('Comprimento da reta 2:').strip())
+r3 = float(input('Comprimento da reta 3:').strip())
+
+if r1 + r2 > r3 and r2 + r3 > r1 and r3 + r1 > r2:
+    print('Com essas retas \033[1;32mÉ POSSÍVEL\033[m formar um triângulo!')
+    if r1 == r2 == r3:
+        print('Elas formam um triângulo \033[4mEQUILÁTERO!')
+    elif r1 == r2 or r1 == r3 or r3 == r2:
+        print('Elas formam um triângulo \033[4mISÓSCELES!')
+    elif r1 != r2 != r3 != r1:
+        print('Elas formam um triângulo \033[4mESCALENO!')
+else:
+    print('Com estar retas \033[1;31mNÃO É POSSÌVEL\033[m formar um triângulo...')
