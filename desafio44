@@ -1,0 +1,25 @@
+# Elabore um progrma que calcule o valor a ser pago por um produto, considerando o seu preço normal e condição de
+# pagamento: 1) a vista no dinheiro: 10% desconto 2) a vista cartao, 5% desconto 3) 2x no cartao preço normal
+# 4) 3x ou mais 20% de juros
+
+p = float(input('Preço do produto? R$').strip())
+print('Escolha uma forma de pagamento:\n'
+      '[ 1 ] À vista no dinheiro\n'
+      '[ 2 ] À vista no cartão\n'
+      '[ 3 ] 2x no cartão\n'
+      '[ 4 ] 3x ou mais no cartão')
+op = int(input('Sua Opção:').strip())
+
+if op == 1:
+    pf = p - (p * 0.1)
+    print(f'À vista no dinheiro você ganha 10% de desconto! Seu produto de R${p:.2f}, custará \033[1;32mR${pf:.2f}!')
+elif op == 2:
+    pf = p - (p * 0.05)
+    print(f'À vista no cartão você ganha 5% de desconto! Seu produto de R${p:.2f}, custará \033[1;32mR${pf:.2f}!')
+elif op == 3:
+    print(f'Em 2x no cartão seu produto de R${p:.2f} não mudará')
+elif op == 4:
+    pf = p + (p * 0.2)
+    print(f'Em 3x ou mais seu produto de R${p:.2f} terá juros de 20%, custando \033[1;32mR${pf:.2f}!')
+else:
+    print('Opção inválida, tente novamente!'.strip())
