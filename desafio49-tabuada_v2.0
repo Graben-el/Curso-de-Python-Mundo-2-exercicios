@@ -1,0 +1,7 @@
+# Refaça o desafio 09, mostrando a tabuada de um número que o usuário escolher, só que agora utilizando iterações.
+
+n = int(input('Insira um número para ver sua tabuada: ').strip())
+print(f'-=TABUADA DO {n}=-')
+for c in range(0, 11):
+    print(f'{n} x {c:>1} = {n*c:>1}')
+print('-='*8)
