@@ -1,7 +1,10 @@
 # Faça um programa que calcule a soma de todos os números
 # ímpares que sao multiplos de 3 e que se encontram no intervalo de 1 até 500
 
+s = 0 # acumulador
+cont = 0 # contador: é o q vai dizer quantos numeros tem na condiçao, geralmente recebe sempre + 1
 for c in range(1, 501):
-    if c % 3 == 0 and c % 2 == 1: # se c % 3 = 0 significa q é divisivel por três e se c % 2 = 1 ele é impar
-        print(c)
-print('Fim')
+    if c % 3 == 0 and c % 2 == 1:
+        cont += 1
+        s += c
+print(f'A soma dos {cont} números impares multiplos de 3 entre 1 e 500 é: {s}')
