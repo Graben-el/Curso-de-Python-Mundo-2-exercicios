@@ -1,0 +1,16 @@
+#  programa que leia número inteiro e diga se ele é primo.
+
+n = int(input('Digite um número para descobrir se ele é primo:').strip())
+div = 0  # contador
+for c in range(1, n + 1):
+    if n % c == 0:
+        print('\033[33m', end='')
+        div += 1
+    else:
+        print('\033[31m', end='')
+    print(c, end=' ')
+print(f'\n\033[mO número {n} foi dividido {div} vezes')
+if div == 2:
+    print(f'Por isso, {n} é um número primo!')
+else:
+    print(f'por isso, {n} não é um número primo')
