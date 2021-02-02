@@ -1,0 +1,13 @@
+# Crie um programa que leia uma frase qualquer e diga se é um palíndromo, desconsiderando os espaços.
+
+frase = str(input('Digite uma frase e descubra se é um palíndromo:').strip().upper())
+s = frase.split() # separa os strings pelo espaço entre ele
+j = ''.join(s) # junta os strings separados
+i = ''
+print(f'Você escolheu a frase {frase}')
+for l in range(len(j) - 1, -1, -1):
+    i += j[l] 
+if i == j:
+    print(f'Temos um palíndromo: {i} e {j}')
+else:
+    print('Não temos uma palíndromo')
