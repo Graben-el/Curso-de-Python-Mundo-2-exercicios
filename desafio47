@@ -1,6 +1,12 @@
 # Criar um programa que mostre na tela todos os numero pares que estão entre 1 e 50:
 
-for c in range(1, 51):
+#minha solução q exige 'mais' processamento:'
+for c in range(1, 51): # para cada numero ele faz duas iterações
     if c % 2 == 0: # condição para ser par, resto tem q ser de divisao por 2 tem q ser 0
         print(c)
 print('Fim')
+
+#solução q exige menos processamento:
+for c in range(2, 51, 2): #cada numero é processado em apenas uma iteração
+    print(c)
+print('rim')
