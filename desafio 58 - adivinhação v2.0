@@ -1,0 +1,21 @@
+# Melhore o jogo do DESAFIO 28 onde o computador vai “pensar” em um número entre 0 e 10. Só que agora o jogador vai
+# tentar adivinhar até acertar, mostrando no final quantos palpites foram necessários para vencer.
+
+from random import randrange
+
+n = randrange(1, 10)
+tent = 0
+print('Irei pensar em um número entre 1 e 10. Tente adivinhar:')
+acertou = False
+while not acertou:
+    j = int(input('Seu palpite: ').strip())
+    tent += 1
+    if n == j:
+        acertou = True
+    else:
+        if j < n:
+            print('Mais...')
+        if j > n:
+            print('Menos...')
+print('*-'*10)
+print(f'Parabéns! Você venceu com {tent} tentativas, eu realmente pensei no número \033[1;34m{n}')
