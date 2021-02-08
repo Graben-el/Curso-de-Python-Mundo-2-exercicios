@@ -1,0 +1,7 @@
+# Faça um programa que leia o sexo de uma pessoa, mas só aceite ‘M’ ou ‘F’. Caso esteja errado, peça digitação
+# novamente até ter um valor correto.
+
+sexo = str(input('Sexo {M/F}:').upper().strip()[0])
+while sexo not in 'MF':
+    sexo = str(input('Entrada Inválida. Por favor informe seu sexo:').upper().strip()[0])
+print('Acabou')
