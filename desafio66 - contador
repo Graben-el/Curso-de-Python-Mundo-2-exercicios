@@ -4,10 +4,9 @@
 
 s = cont = 0
 while True:
-    cont += 1
     n = int(input('Digite um número [999 para parar]: ').strip())
     if n == 999:
-        cont -= 1
         break
+    cont += 1  # ele estando dps do flag, n conta ele no contador
     s += n
 print(f'Foram digitados {cont} números e a soma entre eles é de {s}!')
