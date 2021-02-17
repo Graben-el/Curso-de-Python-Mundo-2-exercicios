@@ -1,0 +1,23 @@
+# Crie um programa que leia o nome e o preço de vários produtos. O programa vai perguntar se o usuário vai continuar.
+# No final mostre: 1) qual é o total gasto na compra, 2_ quantos produtos custam mais de 1000 reais, 3) nome do
+# produto mais barato
+
+cont = tot = p1000 = barato = menor = 0
+while True:
+    prod = str(input('Nome do Produto:  ').strip())
+    p = float(input('Preço: R$ ').strip())
+    cont += 1  # contador pra verificar o prod mais barato
+    tot += p
+    if p >= 1000:
+        p1000 += 1
+    if cont == 1 or p < menor:
+        menor = p
+        barato = prod
+    q = ' '
+    while q not in 'SsNn':
+        q = str(input('Deseja cadastrar outro produto? [s/n]').strip().upper())
+    if q in 'Nn':
+        break
+print(f'\nO total gasto foi de R${tot:.2f}; '
+      f'\n{p1000} produtos custam mais de R$1000,00'
+      f'\nE o produto mais barato é {barato} que custa R${menor}')
