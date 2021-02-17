@@ -1,0 +1,58 @@
+# Faça um programa que jogue par ou ímpar com o PC. O jogo só será interrompido quando o jogador perder, mostrando o
+# total de vitórias consecutivas que ele conquistou no final do jogo
+from random import randrange
+from time import sleep
+
+venc = 0
+print('\n', '#-'*20)
+print('     >>> JOGO DO PAR OU ÍMPAR! <<<')
+print('', '#-'*20, '\n')
+
+while True:
+    e = str(input('  \033[1;33m#\033[mEscolha PAR ou ÍMPAR [p/i]:   ').strip().upper())[0]
+    if e in 'Pp':
+        print('     Você escolheu \033[1mPAR!\033[m Então eu sou \033[1mÍMPAR\033[m...    ')
+    elif e in 'Ii':
+        print('     Você escolheu \033[1mÍMPAR\033[m! Então eu sou \033[1mPAR\033[m...')
+    else:
+        while e not in 'PpIi':
+            print('\033[1;31mEscolha inválida!\033[m Tente novamente!')
+            e = str(input('Escolha PAR ou ÍMPAR [p/i]:  ').strip().upper())[0]
+            if e in 'Pp':
+                print('     Você escolheu \033[1mPAR!\033[m Então eu sou \033[1mÍMPAR\033[m...    ')
+            elif e in 'Ii':
+                print('     Você escolheu \033[1mÍMPAR\033[m! Então eu sou \033[1mPAR\033[m...')
+    j = int(input('\n  \033[1;32m#\033[mEscolha um número de 1 a 10: ').strip())
+    pc = randrange(1, 10)
+    sleep(1)
+    s = j + pc
+    d = s % 2
+    # vitórias:
+    if e in 'Pp' and d == 0:
+        venc += 1
+        print(f'        {j} + {pc} = {s}... {s} é PAR!')
+        sleep(0.3)
+        print('  Você \033[1;33mVENCEU\033[m! Vamos jogar novamente!\n')
+        print('=*'*20)
+    elif e in 'Ii' and d == 1:
+        venc += 1
+        print(f'        {j} + {pc} = {s}... {s} é ÍMPAR!')
+        sleep(0.3)
+        print('  Você \033[1;33mVENCEU\033[m! Vamos jogar novamente!\n')
+        print('', '=*' * 20)
+    # derrotas:
+    elif e in 'Pp' and d == 1:
+        print(f'        {j} + {pc} = {s}... {s} é ÍMPAR!\n      Você \033[1;31mPERDEU\033[m!!\n')
+        break
+    elif e in 'Ii' and d == 0:
+        print(f'        {j} + {pc} = {s}... {s} é PAR!\n        Você \033[1;31mPERDEU\033[m!!\n')
+        break
+sleep(0.3)
+print(f'  Você venceu {venc} vezes consecutivas! Parabéns!')
+print('=-'*20)
+sleep(1)
+
+print('\nENCERRANDO O PROGRAMA', end='')
+for c in range(0, 3):
+    sleep(0.5)
+    print('.', end='')
