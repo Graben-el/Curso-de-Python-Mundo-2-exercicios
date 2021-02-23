@@ -19,7 +19,7 @@ while True:
     dm = d // 1000 % 10
 #  condicional para UNIDADE:
     if 1 <= du < 10:
-        c1 += (du - 1) + 1
+        c1 += du
 #  condicinal para DEZENA:
     if 1 <= dd < 5:  # condicional para dezena menor que 5
             if dd % 2 == 0:
@@ -46,16 +46,10 @@ while True:
 #  condicional para MILHAR
     if dm != 0:
         c50 += (dm / 0.05)
-#  variavel e condicional para encerrar o programa    
-    q = str(input('Deseja sacar algum outro valor? [s/n]').strip().upper())
-    if q in 'Nn':
-        break
-
+    break
+    
 #  resultado de numero de notas impressas
 print(f'Total de {c1} cédulas de R$1,00...')
 print(f'Total de {c10} cédulas de R$10,00...')
 print(f'Total de {c20:.0f} cédulas de R$20,00')
 print(f'Total de {c50:.0f} cédulas de R$50,00...')
-
-
-
