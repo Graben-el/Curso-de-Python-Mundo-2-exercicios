@@ -1,0 +1,61 @@
+# Crie um programa que simule o funcionamento de um caixa eletrônico. No inicio pergunte ao usuário qual será o valor
+# sacado e o programa vai informar quantas cédulas de cada valor serão entregues. Considera que o caixa possui
+# cedulas de 50, 20, 10 e 1 real.
+print('*-'*15)
+print('          BANCO GRS')
+print('*-'*15)
+
+#  contador de notas:
+c1 = c10 = c20 = c50 = 0
+
+while True:
+#  input do valor sacado:
+    d = int(input('\nQuantos reais deseja sacar? R$ ').strip())
+    print(f'Você deseja sacar R${d:.2f}')
+#  variável para obter unidade, dezena, centena e milhar:
+    du = d // 1 % 10
+    dd = d // 10 % 10
+    dc = d // 100 % 10
+    dm = d // 1000 % 10
+#  condicional para UNIDADE:
+    if 1 <= du < 10:
+        c1 += (du - 1) + 1
+#  condicinal para DEZENA:
+    if 1 <= dd < 5:  # condicional para dezena menor que 5
+            if dd % 2 == 0:
+                c20 += (dd / 2)
+            if dd % 2 == 1:
+                c20 += dd // 2
+                c10 += 1
+    elif dd > 5:  # condicional para dezena maior que 5
+        c50 += 1
+        if dd == 6:
+            c10 += 1
+        if dd == 7:
+            c20 += 1
+        if dd == 8:
+            c10 += 1
+            c20 += 2
+        if dd == 9:
+            c20 += 2
+    elif dd == 5:  # condicional para dezena igual a 5
+        c50 += 1
+#  condicional para CENTENA
+    if dc != 0:
+        c50 += dc / 0.5
+#  condicional para MILHAR
+    if dm != 0:
+        c50 += (dm / 0.05)
+#  variavel e condicional para encerrar o programa    
+    q = str(input('Deseja sacar algum outro valor? [s/n]').strip().upper())
+    if q in 'Nn':
+        break
+
+#  resultado de numero de notas impressas
+print(f'Total de {c1} cédulas de R$1,00...')
+print(f'Total de {c10} cédulas de R$10,00...')
+print(f'Total de {c20:.0f} cédulas de R$20,00')
+print(f'Total de {c50:.0f} cédulas de R$50,00...')
+
+
+
